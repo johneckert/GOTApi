@@ -10,7 +10,12 @@ class Character < ApplicationRecord
         gender_split[:female] += 1
       end
     end
-    gender_split
+    output  = []
+    gender_split.each_key do |gender|
+      node = {x: gender, y: gender_split[gender]}
+      output << node
+    end
+    output
   end
 
   def self.dead_by_name
@@ -25,12 +30,17 @@ class Character < ApplicationRecord
         names[letter] = 1
       end
     end
-    names
+    output  = []
+    names.each_key do |l|
+      node = {x: l, y: names[l]}
+      output << node
+    end
+    output
   end
 
   def self.dead_by_culture
     dead_characters = Character.where(dead: true)
-    cultures = { "None" => 0 }
+    cultures = {}
     dead_characters.each do |char|
       culture = char[:culture]
       if culture != ""
@@ -39,11 +49,14 @@ class Character < ApplicationRecord
         else
           cultures[culture] = 1
         end
-      else
-        cultures["None"] += 1
       end
     end
-      cultures
+    output  = []
+    cultures.each_key do |cult|
+      node = {x: cult, y: cultures[cult]}
+      output << node
+    end
+    output
   end
 
 
