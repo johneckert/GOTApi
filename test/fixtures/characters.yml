@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  gender: MyText
+  culture: MyText
+  dead: false
+
+two:
+  name: MyText
+  gender: MyText
+  culture: MyText
+  dead: false
